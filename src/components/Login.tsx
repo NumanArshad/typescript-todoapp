@@ -91,7 +91,7 @@ const responseFacebook = (response:any) => {
              
               </form> */}
                <FacebookLogin
-    appId="1088597931155576"
+    appId="698621347265407"
    // autoLoad={true}
     fields="name,email,picture"
    // onClick={componentClicked}
