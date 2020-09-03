@@ -1,15 +1,32 @@
 
-export type contextType=[string,(vl:string)=>void]
 
+/////////login user info/////
+export interface login_user {
+    profile: string;
+    name: string;
+    accesstoken: string
+}
 
-export interface item {
+///////todo single item///////
+export interface todoItem {
     id: number;
     text: string;
     isCompleted: boolean
 }
 
-export type State = item[]
+///////todo list//////
+export type State = todoItem[]
+
+/////todo action/////
 export interface Action {
     type: String,
     payload?: State | number | string
+}
+
+/////todo prop types////
+export interface todoPropType {
+    state: State,
+    handleDelete: (index: number) => void,
+    handleTriggerComplete: (index: number) => void,
+    handleRLDDChange: (ReorderItems: State) => void,
 }
