@@ -1,22 +1,16 @@
 
-
 .bi-trash{
 cursor: pointer;
 }
-
 .invalid{
   color:red
 }
-
 .badge-pill{
   font-size: 1em;
 } 
-
-
 .dragged .card{
   opacity: 0.5;
 }
-
 button {
   display: block;
   background: none;
@@ -26,6 +20,5 @@ button {
   user-select: none;
   cursor: pointer;
   outline: none;
-  
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }

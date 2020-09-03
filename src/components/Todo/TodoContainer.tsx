@@ -1,17 +1,6 @@
 import React, { useState, useEffect, useReducer } from "react"
 import RLDD from "react-list-drag-and-drop/lib/RLDD";
-
-interface item {
-    id: number;
-    text: string;
-    isCompleted: boolean
-}
-
-type State = item[]
-interface Action {
-    type: String,
-    payload?: State | number | string
-}
+import {State, item, Action} from "../../types"
 
 const todoRdeucer = (state: State, action: Action) => {
     switch (action.type) {
@@ -25,8 +14,9 @@ const todoRdeucer = (state: State, action: Action) => {
             return filterLst
         case 'reorder':
             localStorage.setItem('list', JSON.stringify(action.payload))
-            return action.payload
+            return [...(action.payload as State)]
         case 'load':
+           // console.log("load called")
             let parse = JSON.parse((localStorage.getItem('list') as string))
             return parse || []
         default:
@@ -54,7 +44,7 @@ const TodoContainer: React.FC = () => {
     }
 
     useEffect(() => {
-        dispatch({ type: 'load' })
+       dispatch({ type: 'load' })
     }, [])
 
     const handleTriggerComplete = (index: number): void => {

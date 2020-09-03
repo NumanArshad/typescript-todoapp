@@ -8,6 +8,7 @@ const Login: React.SFC = () => {
   const [token,setToken]=useContext(authContext)
   const handleResponse = (response: any) => {
     if (response) {
+      console.log(response)
       history.push('/todo')
     }
   }
@@ -18,18 +19,19 @@ const Login: React.SFC = () => {
   }
 
 const calledme=()=>{
-  setToken("nice")
+  setToken("kfnjk")
+  //setToken("nice")
 }
 
   return (
     <div className="d-flex justify-content-center mt-4">
       <FacebookProvider appId="698621347265407">
-        {/* <Status>
+        <Status>
           {(respon: any) => (
             <div>
               {respon.loading || <span>...load</span>}
             </div>)}
-        </Status> */}
+        </Status>
         <button onClick={calledme}>trht </button>
       {token}
         <LoginButton
