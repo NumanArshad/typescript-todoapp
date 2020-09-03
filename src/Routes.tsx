@@ -4,6 +4,7 @@ import Login from "./components/Login"
 import TodoContainer from "./components/Todo/TodoContainer"
 import { getAuthUser } from "./services/authService";
 import Header from "./layouts/header"
+
 const ProtectedRoute: React.SFC<any> = ({ component: Component, ...rest }) => {
     return (
         <Route {...rest} render={(props) => { return (getAuthUser() ? <> <Header /> <Component {...props} /></> : <Redirect to="/login" />) }} />

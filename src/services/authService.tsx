@@ -1,9 +1,10 @@
 import { login_user } from "../types"
 
-export const storeUser = (response: any) => {
+export const storeUser = (response: any,history:any) => {
     const { name, picture: { data: { url } } } = response.profile
     const user_data: login_user = { profile: url, name: name, accesstoken: response.tokenDetail.accessToken }
     localStorage.setItem("user", JSON.stringify(user_data))
+    history.push('/todo')
 }
 
 export const logoutUser = (history: any) => {

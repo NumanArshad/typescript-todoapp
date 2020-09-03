@@ -7,8 +7,7 @@ const Login: React.SFC = () => {
   const handleResponse = (response: any) => {
     if (response) {
       console.log(response)
-      storeUser(response)
-      history.push('/todo')
+      storeUser(response, history)
     }
   }
   const handleError = (error: any) => {
