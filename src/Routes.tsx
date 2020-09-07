@@ -16,7 +16,7 @@ const Routes: React.SFC = () => {
             <Switch>
                 <Route path="/login" component={Login} />
                 <ProtectedRoute path="/todo" component={TodoContainer} />
-                <Redirect from="/" to="/login" />
+                <Redirect from="/" to="/todo" />
             </Switch>
         </Router>)
 }
