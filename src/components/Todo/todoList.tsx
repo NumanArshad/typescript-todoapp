@@ -1,11 +1,11 @@
-import React from "react"
+import React,{memo } from "react"
 import { todoItem,todoPropType } from "../../interfaces"
 import deleteIcon from "../../layouts/deleteIcon.svg"
 import RLDD from "react-list-drag-and-drop/lib/RLDD";
 
 
 const TodoList: React.SFC<todoPropType> = ({ state, handleDelete, handleTriggerComplete, handleRLDDChange }) => {
-    const itemRenderer = (item: todoItem, index: number): JSX.Element => {
+   const itemRenderer = (item: todoItem, index: number): JSX.Element => {
         return (
             <div className="card mt-4" key={index}>
                 <div className="card-body">
@@ -29,4 +29,4 @@ const TodoList: React.SFC<todoPropType> = ({ state, handleDelete, handleTriggerC
     </>
     )
 }
-export default TodoList
+export default memo(TodoList)

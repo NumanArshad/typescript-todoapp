@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer } from "react"
+import React, { useState, useEffect, useReducer,useCallback } from "react"
 import { State, Action } from "../../interfaces"
 import TodoList from "./todoList"
 const todoReducer = (state: State, action: Action) => {
@@ -30,24 +30,28 @@ const TodoContainer: React.FC = () => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setItem(e.target.value)
     }
+
+    useEffect(() => {
+        dispatch({ type: 'load' })
+    }, [])
+
     const handleAdd = (): void => {
         setItem('')
         dispatch({ type: 'add', payload: item })
     }
-    const handleDelete = (index: number): void => {
+    const handleDelete = useCallback((index: number): void => {
         dispatch({ type: 'delete', payload: index })
-    }
-    const handleRLDDChange = (ReorderItems: State): void => {
+    },[])
+
+    const handleRLDDChange = useCallback((ReorderItems: State): void => {
         dispatch({ type: 'updatetodos', payload: ReorderItems })
-    }
-    useEffect(() => {
-        dispatch({ type: 'load' })
-    }, [])
-    const handleTriggerComplete = (index: number): void => {
+    },[])
+
+   const handleTriggerComplete = useCallback((index: number): void => {
         const items: State = [...state]
         items[index].isCompleted = !items[index].isCompleted
         dispatch({ type: 'updatetodos', payload: items })
-    }
+    },[state])
 
     return (
 
