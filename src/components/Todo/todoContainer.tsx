@@ -1,19 +1,19 @@
 import React, { useState, useEffect, useReducer,useCallback } from "react"
 import { State, Action } from "../../interfaces"
 import TodoList from "./todoList"
-const todoReducer = (state: State, action: Action) => {
+const todoReducer = (state: State, action: Action):State => {
     switch (action.type) {
         case 'add':
             let lst = [...state, { text: action.payload, isCompleted: false, id: state.length + 1 }]
             localStorage.setItem('list', JSON.stringify(lst))
-            return lst
+            return (lst as State)
         case 'delete':
             let filterLst = state.filter((item, index) => index !== action.payload)
             localStorage.setItem('list', JSON.stringify(filterLst))
             return filterLst
         case 'updatetodos':
             localStorage.setItem('list', JSON.stringify(action.payload))
-            return action.payload
+            return (action.payload as State)
         case 'load':
             // console.log("load called")
             let parse = JSON.parse((localStorage.getItem('list') as string))
