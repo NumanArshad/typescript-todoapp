@@ -16,7 +16,7 @@ const Login: React.SFC = () => {
   }
 
   useEffect(() => {
-    verifyAuthUser(history)
+   verifyAuthUser(history)
   }, [history])
 
   return (

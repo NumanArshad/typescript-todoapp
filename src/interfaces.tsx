@@ -1,5 +1,3 @@
-
-
 /////////login user info/////
 export interface login_user {
     profile: string;

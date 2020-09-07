@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useReducer } from "react"
-import { State, Action } from "../../types"
+import { State, Action } from "../../interfaces"
 
-import TodoList from "./TodoList"
+import TodoList from "./todoList"
 const todoReducer = (state: State, action: Action) => {
     switch (action.type) {
         case 'add':

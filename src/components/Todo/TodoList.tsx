@@ -1,8 +1,8 @@
 import React from "react"
-import { todoItem } from "../../types"
+import { todoItem,todoPropType } from "../../interfaces"
 import deleteIcon from "../../layouts/deleteIcon.svg"
 import RLDD from "react-list-drag-and-drop/lib/RLDD";
-import { todoPropType } from "../../types"
+
 
 const TodoList: React.SFC<todoPropType> = ({ state, handleDelete, handleTriggerComplete, handleRLDDChange }) => {
     const itemRenderer = (item: todoItem, index: number): JSX.Element => {

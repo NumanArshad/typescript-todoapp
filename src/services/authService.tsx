@@ -1,4 +1,4 @@
-import { login_user } from "../types"
+import { login_user } from "../interfaces"
 
 export const storeUser = (response: any,history:any) => {
     const { name, picture: { data: { url } } } = response.profile
