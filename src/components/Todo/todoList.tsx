@@ -5,6 +5,7 @@ import RLDD from "react-list-drag-and-drop/lib/RLDD";
 
 
 const TodoList: React.SFC<todoPropType> = ({ state, handleDelete, handleTriggerComplete, handleRLDDChange }) => {
+    console.log("rerender")
    const itemRenderer = (item: todoItem, index: number): JSX.Element => {
         return (
             <div className="card mt-4" key={index}>
